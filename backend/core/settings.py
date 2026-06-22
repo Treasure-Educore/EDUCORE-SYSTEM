@@ -5,7 +5,6 @@ Django settings for the School Management System backend.
 from datetime import timedelta
 from pathlib import Path
 
-import dj_database_url
 import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +31,15 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'accounts',
+    'students',
+    'staff',
+    'fees',
+    'timetable',
+    'reports',
+    'schemes',
+    'announcements',
+    'analytics',
+    'attendance',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +73,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
-    'default': dj_database_url.parse(env('DATABASE_URL')),
+    'default': env.db('DATABASE_URL'),
 }
 
 AUTH_USER_MODEL = 'accounts.User'
