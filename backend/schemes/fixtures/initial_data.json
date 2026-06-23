@@ -1,0 +1,27 @@
+[
+  {
+    "model": "schemes.schemeofwork",
+    "pk": "00000000-0000-0000-0000-00000000sow1",
+    "fields": {
+      "subject": null,
+      "stream": null,
+      "term": "Term 1",
+      "week": 1,
+      "period": 1,
+      "theme_topic": "Numbers and Operations",
+      "competency": "Understand operations",
+      "learning_outcomes": "Add and subtract",
+      "learning_activities": "Exercises and examples",
+      "teaching_resources": "Textbook",
+      "references": "",
+      "remarks": "",
+      "assessment_methods": "Quiz",
+      "status": "Draft",
+      "teacher": null,
+      "submitted_to": "Director of Studies",
+      "submitted_date": null,
+      "reviewed_date": null,
+      "feedback": ""
+    }
+  }
+]
