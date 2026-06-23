@@ -1,5 +1,6 @@
 export const teacherManagementRoles = ["non-teaching-staff", "dos", "principal", "head-teacher"];
 export const teacherAssignmentRoles = ["dos", "principal", "head-teacher"];
+export const teacherCreationRoles = ["head-teacher"];
 
 export function canViewTeacherManagement(role) {
   return teacherManagementRoles.includes(role);
@@ -15,4 +16,8 @@ export function canManageTeacherAssignments(role) {
 
 export function canAssignTeacherRoles(role) {
   return teacherAssignmentRoles.includes(role);
+}
+
+export function canCreateTeacherRecords(role) {
+  return teacherCreationRoles.includes(role);
 }

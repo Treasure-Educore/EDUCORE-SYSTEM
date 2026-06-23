@@ -129,7 +129,7 @@ export const principalRouteEntries = principalNavigation.flatMap((group) =>
 );
 
 export const principalDashboardShortcuts = [
-  { label: "Add Teacher", path: "/principal/teachers/profiles", icon: TeachersIcon },
+  { label: "Add Teacher", path: "/teachers", icon: TeachersIcon, accessRoles: ["head-teacher"] },
   { label: "Create Announcement", path: "/principal/communication/announcements", icon: MegaphoneIcon },
   { label: "Generate Report", path: "/principal/reports/general", icon: ChartIcon },
 ];

@@ -36,7 +36,7 @@ export default function PrincipalSidebar({ collapsed, mobileOpen, openGroup, onT
                 <GroupIcon />
                 <span>{group.label}</span>
                 <span className="principal-sidebar__chevron" aria-hidden="true">
-                  {isOpen ? "−" : "+"}
+                  {isOpen ? "-" : "+"}
                 </span>
               </button>
 
