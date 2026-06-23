@@ -84,7 +84,7 @@ export default function StaffDetail() {
 
       <PageHeader
         title={`${staffMember.firstName} ${staffMember.lastName}`}
-        subtitle={`Employee ${staffMember.employeeNumber} • ${staffMember.primaryRole}`}
+        subtitle={`Employee ${staffMember.employeeNumber} - ${staffMember.primaryRole}`}
         action={
           <div className="student-profile__actions">
             <button type="button" className="secondary-button" onClick={() => navigate("/principal/staff")}>

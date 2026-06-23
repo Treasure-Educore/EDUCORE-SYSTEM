@@ -6,7 +6,7 @@ import PageHeader from "../components/PageHeader";
 import DataTable from "../components/DataTable";
 import { useAuth } from "../context/AuthContext";
 import { deleteTeacher, loadTeachers, teacherLeadershipOptions, upsertTeacher } from "../data/teachers";
-import { canManageTeacherAssignments, canViewTeacherManagement } from "../data/teacherPermissions";
+import { canCreateTeacherRecords, canManageTeacherAssignments, canViewTeacherManagement } from "../data/teacherPermissions";
 
 const initialFormState = {
   id: "",
@@ -79,6 +79,7 @@ export default function Teachers() {
   const { role } = useAuth();
   const canViewTeachers = canViewTeacherManagement(role);
   const canManageAssignments = canManageTeacherAssignments(role);
+  const canCreateTeachers = canCreateTeacherRecords(role);
   const [teachers, setTeachers] = useState(() => loadTeachers());
   const [editorOpen, setEditorOpen] = useState(false);
   const [selected, setSelected] = useState(null);
@@ -218,9 +219,11 @@ export default function Teachers() {
         title="Teachers"
         subtitle="Manage teacher records, assignments, and availability in a familiar student-style flow."
         action={
-          <button type="button" className="primary-button" onClick={() => openEditor(null)}>
-            Add Teacher
-          </button>
+          canCreateTeachers ? (
+            <button type="button" className="primary-button" onClick={() => openEditor(null)}>
+              Add Teacher
+            </button>
+          ) : null
         }
       />
 

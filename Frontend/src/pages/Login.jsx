@@ -7,6 +7,14 @@ import { clearSelectedRole, loadSelectedRole, roles } from "../data/roles";
 
 const roleLabels = Object.fromEntries(roles.map((role) => [role.key, role.label]));
 
+function getPostLoginPath(role) {
+  if (["principal", "head-teacher", "dos", "non-teaching-staff"].includes(role)) {
+    return "/principal/overview";
+  }
+
+  return "/dashboard";
+}
+
 export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -19,13 +27,13 @@ export default function Login() {
 
   const mutation = useMutation({
     mutationFn: login,
-    onSuccess: () => {
-      navigate("/dashboard", { replace: true });
+    onSuccess: (_data, variables) => {
+      navigate(getPostLoginPath(variables?.role), { replace: true });
     },
   });
 
   if (isAuthenticated) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to={getPostLoginPath(role)} replace />;
   }
 
   if (!selectedRole) {
