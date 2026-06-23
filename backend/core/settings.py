@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'accounts',
     'students',
     'staff',
+    'marks',
     'fees',
     'timetable',
     'reports',

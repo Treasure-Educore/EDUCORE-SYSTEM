@@ -1,0 +1,889 @@
+[
+  {
+    "model": "students.classlevel",
+    "pk": "10000000-0000-0000-0000-000000000004",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "S.4"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000006",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000004",
+      "name": "A",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.dormitory",
+    "pk": "30000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "Mandela"
+    }
+  },
+  {
+    "model": "students.club",
+    "pk": "40000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "Debate"
+    }
+  },
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440001",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "Sciences"
+    }
+  },
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440003",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "Languages"
+    }
+  },
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440004",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "Mathematics"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440101",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "Mathematics",
+      "code": "MATH",
+      "department": "550e8400-e29b-41d4-a716-446655440004"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440102",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "English",
+      "code": "ENG",
+      "department": "550e8400-e29b-41d4-a716-446655440003"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440103",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "Physics",
+      "code": "PHY",
+      "department": "550e8400-e29b-41d4-a716-446655440001"
+    }
+  },
+  {
+    "model": "marks.term",
+    "pk": "70000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "Term 1",
+      "academic_year": "2025/2026",
+      "is_current": true
+    }
+  },
+  {
+    "model": "marks.term",
+    "pk": "70000000-0000-0000-0000-000000000002",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "Term 2",
+      "academic_year": "2025/2026",
+      "is_current": false
+    }
+  },
+  {
+    "model": "marks.term",
+    "pk": "70000000-0000-0000-0000-000000000003",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "name": "Term 3",
+      "academic_year": "2025/2026",
+      "is_current": false
+    }
+  },
+  {
+    "model": "marks.assessment",
+    "pk": "70000000-0000-0000-0000-000000000101",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "label": "Test 1",
+      "max_score": 30,
+      "term": "70000000-0000-0000-0000-000000000001",
+      "order": 1
+    }
+  },
+  {
+    "model": "marks.assessment",
+    "pk": "70000000-0000-0000-0000-000000000102",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "label": "Test 2",
+      "max_score": 30,
+      "term": "70000000-0000-0000-0000-000000000001",
+      "order": 2
+    }
+  },
+  {
+    "model": "marks.assessment",
+    "pk": "70000000-0000-0000-0000-000000000103",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "label": "Exam",
+      "max_score": 40,
+      "term": "70000000-0000-0000-0000-000000000001",
+      "order": 3
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9001",
+      "full_name": "Amara Nkosi",
+      "date_of_birth": "2010-03-12",
+      "gender": "Female",
+      "parent_details": "Grace Nkosi - 0772 100 201",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000002",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9002",
+      "full_name": "Brian Kato",
+      "date_of_birth": "2010-08-22",
+      "gender": "Male",
+      "parent_details": "Moses Kato - 0772 100 202",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000003",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9003",
+      "full_name": "Clara Achieng",
+      "date_of_birth": "2010-01-19",
+      "gender": "Female",
+      "parent_details": "Peter Achieng - 0772 100 203",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000004",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9004",
+      "full_name": "David Ouma",
+      "date_of_birth": "2009-11-07",
+      "gender": "Male",
+      "parent_details": "Sarah Ouma - 0772 100 204",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000005",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9005",
+      "full_name": "Esther Namata",
+      "date_of_birth": "2010-05-28",
+      "gender": "Female",
+      "parent_details": "Joseph Namata - 0772 100 205",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000006",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9006",
+      "full_name": "Faridah Nansubuga",
+      "date_of_birth": "2010-09-03",
+      "gender": "Female",
+      "parent_details": "Aisha Nansubuga - 0772 100 206",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000007",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9007",
+      "full_name": "George Mutebi",
+      "date_of_birth": "2009-12-14",
+      "gender": "Male",
+      "parent_details": "Henry Mutebi - 0772 100 207",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000008",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9008",
+      "full_name": "Harriet Kirabo",
+      "date_of_birth": "2010-02-25",
+      "gender": "Female",
+      "parent_details": "Kevin Kirabo - 0772 100 208",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000009",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9009",
+      "full_name": "Isaac Lwanga",
+      "date_of_birth": "2010-07-17",
+      "gender": "Male",
+      "parent_details": "Rose Lwanga - 0772 100 209",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "students.student",
+    "pk": "71000000-0000-0000-0000-000000000010",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student_number": "STU/2026/9010",
+      "full_name": "Joan Akello",
+      "date_of_birth": "2010-10-31",
+      "gender": "Female",
+      "parent_details": "Patrick Akello - 0772 100 210",
+      "year_of_entry": "2026",
+      "stream": "20000000-0000-0000-0000-000000000006",
+      "dormitory": "30000000-0000-0000-0000-000000000001",
+      "club": "40000000-0000-0000-0000-000000000001",
+      "status": "Active"
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000001",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "24.0",
+      "test2_score": "25.0",
+      "exam_score": "34.0",
+      "total": "83.0",
+      "grade": "A",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000002",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000001",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "22.0",
+      "test2_score": "24.0",
+      "exam_score": "31.0",
+      "total": "77.0",
+      "grade": "B",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000003",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000001",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "21.0",
+      "test2_score": "20.0",
+      "exam_score": "29.0",
+      "total": "70.0",
+      "grade": "B",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000004",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000002",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "20.0",
+      "test2_score": "23.0",
+      "exam_score": "30.0",
+      "total": "73.0",
+      "grade": "B",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000005",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000002",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "19.0",
+      "test2_score": "21.0",
+      "exam_score": "28.0",
+      "total": "68.0",
+      "grade": "C",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000006",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000002",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "17.0",
+      "test2_score": "22.0",
+      "exam_score": "27.0",
+      "total": "66.0",
+      "grade": "C",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000007",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000003",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "28.0",
+      "test2_score": "27.0",
+      "exam_score": "38.0",
+      "total": "93.0",
+      "grade": "A",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000008",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000003",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "25.0",
+      "test2_score": "24.0",
+      "exam_score": "34.0",
+      "total": "83.0",
+      "grade": "A",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000009",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000003",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "23.0",
+      "test2_score": "22.0",
+      "exam_score": "33.0",
+      "total": "78.0",
+      "grade": "B",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000010",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000004",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "16.0",
+      "test2_score": "18.0",
+      "exam_score": "25.0",
+      "total": "59.0",
+      "grade": "D",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000011",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000004",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "18.0",
+      "test2_score": "17.0",
+      "exam_score": "24.0",
+      "total": "59.0",
+      "grade": "D",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000012",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000004",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "15.0",
+      "test2_score": "16.0",
+      "exam_score": "22.0",
+      "total": "53.0",
+      "grade": "D",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000013",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000005",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "12.0",
+      "test2_score": "14.0",
+      "exam_score": "20.0",
+      "total": "46.0",
+      "grade": "F",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000014",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000005",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "21.0",
+      "test2_score": "19.0",
+      "exam_score": "27.0",
+      "total": "67.0",
+      "grade": "C",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000015",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000005",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "20.0",
+      "test2_score": "18.0",
+      "exam_score": "30.0",
+      "total": "68.0",
+      "grade": "C",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000016",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000006",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "26.0",
+      "test2_score": "24.0",
+      "exam_score": "36.0",
+      "total": "86.0",
+      "grade": "A",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000017",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000006",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "24.0",
+      "test2_score": "22.0",
+      "exam_score": "32.0",
+      "total": "78.0",
+      "grade": "B",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000018",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000006",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "22.0",
+      "test2_score": "23.0",
+      "exam_score": "31.0",
+      "total": "76.0",
+      "grade": "B",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000019",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000007",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "18.0",
+      "test2_score": "20.0",
+      "exam_score": "29.0",
+      "total": "67.0",
+      "grade": "C",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000020",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000007",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "17.0",
+      "test2_score": "19.0",
+      "exam_score": "26.0",
+      "total": "62.0",
+      "grade": "C",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000021",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000007",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "16.0",
+      "test2_score": "18.0",
+      "exam_score": "24.0",
+      "total": "58.0",
+      "grade": "D",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000022",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000008",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "23.0",
+      "test2_score": "21.0",
+      "exam_score": "33.0",
+      "total": "77.0",
+      "grade": "B",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000023",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000008",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "20.0",
+      "test2_score": "18.0",
+      "exam_score": "29.0",
+      "total": "67.0",
+      "grade": "C",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000024",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000008",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "24.0",
+      "test2_score": "24.0",
+      "exam_score": "35.0",
+      "total": "83.0",
+      "grade": "A",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000025",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000009",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "14.0",
+      "test2_score": "15.0",
+      "exam_score": "21.0",
+      "total": "50.0",
+      "grade": "D",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000026",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000009",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "13.0",
+      "test2_score": "16.0",
+      "exam_score": "20.0",
+      "total": "49.0",
+      "grade": "F",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000027",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000009",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "18.0",
+      "test2_score": "17.0",
+      "exam_score": "25.0",
+      "total": "60.0",
+      "grade": "C",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000028",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000010",
+      "subject": "550e8400-e29b-41d4-a716-446655440101",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "30.0",
+      "test2_score": "28.0",
+      "exam_score": "39.0",
+      "total": "97.0",
+      "grade": "A",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000029",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000010",
+      "subject": "550e8400-e29b-41d4-a716-446655440102",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "26.0",
+      "test2_score": "27.0",
+      "exam_score": "35.0",
+      "total": "88.0",
+      "grade": "A",
+      "position": null,
+      "is_submitted": true
+    }
+  },
+  {
+    "model": "marks.markssummary",
+    "pk": "72000000-0000-0000-0000-000000000030",
+    "fields": {
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z",
+      "student": "71000000-0000-0000-0000-000000000010",
+      "subject": "550e8400-e29b-41d4-a716-446655440103",
+      "term": "70000000-0000-0000-0000-000000000001",
+      "test1_score": "25.0",
+      "test2_score": "26.0",
+      "exam_score": "36.0",
+      "total": "87.0",
+      "grade": "A",
+      "position": null,
+      "is_submitted": true
+    }
+  }
+]

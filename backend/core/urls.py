@@ -28,4 +28,6 @@ urlpatterns = [
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
     path('api/dashboard/', dashboard, name='dashboard'),
+    path('api/', include('students.urls')),
+    path('api/', include('marks.urls')),
 ]
