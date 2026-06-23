@@ -1,0 +1,209 @@
+[
+  {
+    "model": "students.classlevel",
+    "pk": "10000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "S.1"
+    }
+  },
+  {
+    "model": "students.classlevel",
+    "pk": "10000000-0000-0000-0000-000000000002",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "S.2"
+    }
+  },
+  {
+    "model": "students.classlevel",
+    "pk": "10000000-0000-0000-0000-000000000003",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "S.3"
+    }
+  },
+  {
+    "model": "students.classlevel",
+    "pk": "10000000-0000-0000-0000-000000000004",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "S.4"
+    }
+  },
+  {
+    "model": "students.classlevel",
+    "pk": "10000000-0000-0000-0000-000000000005",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "S.5"
+    }
+  },
+  {
+    "model": "students.classlevel",
+    "pk": "10000000-0000-0000-0000-000000000006",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "S.6"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000001",
+      "name": "A",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000002",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000001",
+      "name": "B",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000003",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000002",
+      "name": "A",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000004",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000002",
+      "name": "B",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000005",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000003",
+      "name": "A",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000006",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000004",
+      "name": "A",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000007",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000004",
+      "name": "Science",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000008",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000005",
+      "name": "Arts",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.stream",
+    "pk": "20000000-0000-0000-0000-000000000009",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "class_level": "10000000-0000-0000-0000-000000000006",
+      "name": "Arts",
+      "academic_year": "2026"
+    }
+  },
+  {
+    "model": "students.dormitory",
+    "pk": "30000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "Mandela"
+    }
+  },
+  {
+    "model": "students.dormitory",
+    "pk": "30000000-0000-0000-0000-000000000002",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "Lincoln"
+    }
+  },
+  {
+    "model": "students.dormitory",
+    "pk": "30000000-0000-0000-0000-000000000003",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "Nyerere"
+    }
+  },
+  {
+    "model": "students.club",
+    "pk": "40000000-0000-0000-0000-000000000001",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "Debate"
+    }
+  },
+  {
+    "model": "students.club",
+    "pk": "40000000-0000-0000-0000-000000000002",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "Science"
+    }
+  },
+  {
+    "model": "students.club",
+    "pk": "40000000-0000-0000-0000-000000000003",
+    "fields": {
+      "created_at": "2026-01-01T00:00:00Z",
+      "updated_at": "2026-01-01T00:00:00Z",
+      "name": "Sports"
+    }
+  }
+]
