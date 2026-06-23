@@ -1,0 +1,122 @@
+[
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440001",
+    "fields": {
+      "name": "Sciences",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440002",
+    "fields": {
+      "name": "Humanities",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440003",
+    "fields": {
+      "name": "Languages",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440004",
+    "fields": {
+      "name": "Mathematics",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440005",
+    "fields": {
+      "name": "Technical",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.department",
+    "pk": "550e8400-e29b-41d4-a716-446655440006",
+    "fields": {
+      "name": "Administration",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440101",
+    "fields": {
+      "name": "Mathematics",
+      "code": "MATH",
+      "department": "550e8400-e29b-41d4-a716-446655440004",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440102",
+    "fields": {
+      "name": "English",
+      "code": "ENG",
+      "department": "550e8400-e29b-41d4-a716-446655440003",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440103",
+    "fields": {
+      "name": "Physics",
+      "code": "PHY",
+      "department": "550e8400-e29b-41d4-a716-446655440001",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440104",
+    "fields": {
+      "name": "Chemistry",
+      "code": "CHEM",
+      "department": "550e8400-e29b-41d4-a716-446655440001",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440105",
+    "fields": {
+      "name": "Biology",
+      "code": "BIO",
+      "department": "550e8400-e29b-41d4-a716-446655440001",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.subject",
+    "pk": "550e8400-e29b-41d4-a716-446655440106",
+    "fields": {
+      "name": "Agriculture",
+      "code": "AGR",
+      "department": "550e8400-e29b-41d4-a716-446655440001",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  }
+]

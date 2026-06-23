@@ -1,0 +1,219 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": "550e8400-e29b-41d4-a716-446655440201",
+    "fields": {
+      "email": "jane.n@greenfield.edu",
+      "name": "Jane Nakimuli",
+      "role": "teacher",
+      "password": "Greenfield@2026",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.staffprofile",
+    "pk": "550e8400-e29b-41d4-a716-446655440301",
+    "fields": {
+      "user": "550e8400-e29b-41d4-a716-446655440201",
+      "phone": "+256701234501",
+      "gender": "Female",
+      "tin": "1002345678",
+      "bank_account": "1234567890001",
+      "department": "550e8400-e29b-41d4-a716-446655440004",
+      "status": "Active",
+      "class_teacher_stream": "S.4 A",
+      "patron_club": "Science Club",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": "550e8400-e29b-41d4-a716-446655440202",
+    "fields": {
+      "email": "samuel.m@greenfield.edu",
+      "name": "Samuel Mugisha",
+      "role": "teacher",
+      "password": "Greenfield@2026",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.staffprofile",
+    "pk": "550e8400-e29b-41d4-a716-446655440302",
+    "fields": {
+      "user": "550e8400-e29b-41d4-a716-446655440202",
+      "phone": "+256701234502",
+      "gender": "Male",
+      "tin": "1002345679",
+      "bank_account": "1234567890002",
+      "department": "550e8400-e29b-41d4-a716-446655440003",
+      "status": "Active",
+      "class_teacher_stream": "S.2 B",
+      "patron_club": "Debate Club",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": "550e8400-e29b-41d4-a716-446655440203",
+    "fields": {
+      "email": "ruth.a@greenfield.edu",
+      "name": "Dr. Ruth Apio",
+      "role": "dos",
+      "password": "Greenfield@2026",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.staffprofile",
+    "pk": "550e8400-e29b-41d4-a716-446655440303",
+    "fields": {
+      "user": "550e8400-e29b-41d4-a716-446655440203",
+      "phone": "+256701234503",
+      "gender": "Female",
+      "tin": "1002345680",
+      "bank_account": "1234567890003",
+      "department": "550e8400-e29b-41d4-a716-446655440001",
+      "status": "Active",
+      "class_teacher_stream": "",
+      "patron_club": "Academic Committee",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": "550e8400-e29b-41d4-a716-446655440204",
+    "fields": {
+      "email": "robert.k@greenfield.edu",
+      "name": "Robert Kintu",
+      "role": "bursar",
+      "password": "Greenfield@2026",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.staffprofile",
+    "pk": "550e8400-e29b-41d4-a716-446655440304",
+    "fields": {
+      "user": "550e8400-e29b-41d4-a716-446655440204",
+      "phone": "+256701234504",
+      "gender": "Male",
+      "tin": "1002345681",
+      "bank_account": "1234567890004",
+      "department": "550e8400-e29b-41d4-a716-446655440006",
+      "status": "Active",
+      "class_teacher_stream": "",
+      "patron_club": "Finance Committee",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": "550e8400-e29b-41d4-a716-446655440205",
+    "fields": {
+      "email": "margaret.a@greenfield.edu",
+      "name": "Margaret Auma",
+      "role": "head_teacher",
+      "password": "Greenfield@2026",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.staffprofile",
+    "pk": "550e8400-e29b-41d4-a716-446655440305",
+    "fields": {
+      "user": "550e8400-e29b-41d4-a716-446655440205",
+      "phone": "+256701234505",
+      "gender": "Female",
+      "tin": "1002345682",
+      "bank_account": "1234567890005",
+      "department": "550e8400-e29b-41d4-a716-446655440006",
+      "status": "Active",
+      "class_teacher_stream": "",
+      "patron_club": "Academic Board",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": "550e8400-e29b-41d4-a716-446655440206",
+    "fields": {
+      "email": "daniel.o@greenfield.edu",
+      "name": "Daniel Owino",
+      "role": "teacher",
+      "password": "Greenfield@2026",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.staffprofile",
+    "pk": "550e8400-e29b-41d4-a716-446655440306",
+    "fields": {
+      "user": "550e8400-e29b-41d4-a716-446655440206",
+      "phone": "+256701234506",
+      "gender": "Male",
+      "tin": "1002345683",
+      "bank_account": "1234567890006",
+      "department": "550e8400-e29b-41d4-a716-446655440001",
+      "status": "Active",
+      "class_teacher_stream": "S.1 A",
+      "patron_club": "Sports Committee",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": "550e8400-e29b-41d4-a716-446655440207",
+    "fields": {
+      "email": "florence.a@greenfield.edu",
+      "name": "Florence Adong",
+      "role": "non_teaching",
+      "password": "Greenfield@2026",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "created_at": "2026-06-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "staff.staffprofile",
+    "pk": "550e8400-e29b-41d4-a716-446655440307",
+    "fields": {
+      "user": "550e8400-e29b-41d4-a716-446655440207",
+      "phone": "+256701234507",
+      "gender": "Female",
+      "tin": "1002345684",
+      "bank_account": "1234567890007",
+      "department": "550e8400-e29b-41d4-a716-446655440006",
+      "status": "Active",
+      "class_teacher_stream": "",
+      "patron_club": "Administrative Support",
+      "created_at": "2026-06-23T00:00:00Z",
+      "updated_at": "2026-06-23T00:00:00Z"
+    }
+  }
+]
