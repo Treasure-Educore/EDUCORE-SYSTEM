@@ -1,0 +1,42 @@
+[
+  {
+    "model": "timetable.period",
+    "pk": "00000000-0000-0000-0000-000000000001",
+    "fields": {"number": 1, "start_time": "07:30:00", "end_time": "08:30:00"}
+  },
+  {
+    "model": "timetable.period",
+    "pk": "00000000-0000-0000-0000-000000000002",
+    "fields": {"number": 2, "start_time": "08:30:00", "end_time": "09:30:00"}
+  },
+  {
+    "model": "timetable.period",
+    "pk": "00000000-0000-0000-0000-000000000003",
+    "fields": {"number": 3, "start_time": "09:30:00", "end_time": "10:30:00"}
+  },
+  {
+    "model": "timetable.period",
+    "pk": "00000000-0000-0000-0000-000000000004",
+    "fields": {"number": 4, "start_time": "10:30:00", "end_time": "11:30:00"}
+  },
+  {
+    "model": "timetable.period",
+    "pk": "00000000-0000-0000-0000-000000000005",
+    "fields": {"number": 5, "start_time": "11:30:00", "end_time": "12:30:00"}
+  },
+  {
+    "model": "timetable.period",
+    "pk": "00000000-0000-0000-0000-000000000006",
+    "fields": {"number": 6, "start_time": "13:30:00", "end_time": "14:30:00"}
+  },
+  {
+    "model": "timetable.period",
+    "pk": "00000000-0000-0000-0000-000000000007",
+    "fields": {"number": 7, "start_time": "14:30:00", "end_time": "15:30:00"}
+  },
+  {
+    "model": "timetable.period",
+    "pk": "00000000-0000-0000-0000-000000000008",
+    "fields": {"number": 8, "start_time": "15:30:00", "end_time": "16:30:00"}
+  }
+]
