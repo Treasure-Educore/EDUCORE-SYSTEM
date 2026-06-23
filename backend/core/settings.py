@@ -13,7 +13,7 @@ env = environ.Env(
     DEBUG=(bool, False),
     CORS_ALLOWED_ORIGINS=(list, []),
 )
-environ.Env.read_env(BASE_DIR / ".env")
+environ.Env.read_env(BASE_DIR / ".env", overwrite=True)
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
