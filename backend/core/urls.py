@@ -7,6 +7,8 @@ from accounts.views import CustomTokenObtainPairView
 from staff.views import StaffViewSet, SubjectViewSet, DepartmentViewSet
 from announcements.views import AnnouncementViewSet
 from analytics.views import dashboard
+from timetable.views import TimetableSlotViewSet, PeriodViewSet
+from schemes.views import SchemeOfWorkViewSet, LessonPlanViewSet, SubmissionsViewSet
 
 # Create router and register viewsets
 router = DefaultRouter()
@@ -14,6 +16,11 @@ router.register(r'staff', StaffViewSet, basename='staff')
 router.register(r'subjects', SubjectViewSet, basename='subject')
 router.register(r'departments', DepartmentViewSet, basename='department')
 router.register(r'announcements', AnnouncementViewSet, basename='announcement')
+router.register(r'timetable/slots', TimetableSlotViewSet, basename='timetable-slot')
+router.register(r'timetable/periods', PeriodViewSet, basename='period')
+router.register(r'schemes', SchemeOfWorkViewSet, basename='scheme')
+router.register(r'lesson-plans', LessonPlanViewSet, basename='lessonplan')
+router.register(r'submissions', SubmissionsViewSet, basename='submissions')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
