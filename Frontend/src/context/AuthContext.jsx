@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-//import { clearStoredSession, loadStoredSession, persistSession } from "../lib/auth";
+import { clearStoredSession, loadStoredSession, persistSession } from "../lib/auth";
 import { clearSelectedRole, loadSelectedRole } from "../data/roles";
 
 const AuthContext = createContext(null);
