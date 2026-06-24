@@ -18,6 +18,33 @@ from .serializers import (
 )
 
 
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from .models import Term
+
+
+class TermListView(generics.ListAPIView):
+    """
+    GET /api/terms/
+    Returns all terms. Frontend uses this to populate the term dropdown in MarksEntry.
+    """
+    queryset = Term.objects.all().order_by("academic_year", "name")
+    permission_classes = [IsAuthenticated]
+
+    def list(self, request):
+        terms = self.get_queryset()
+        return Response([
+            {
+                "id": str(t.id),
+                "name": t.name,
+                "academicYear": t.academic_year,
+                "isCurrent": t.is_current,
+                "displayName": f"{t.name} — {t.academic_year}",
+            }
+            for t in terms
+        ])
+
+
 class CanViewMarks(RolePermission):
     allowed_roles = ("teacher", "dos", "admin", "head_teacher")
 

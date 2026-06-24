@@ -6,7 +6,8 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from accounts.views import CustomTokenObtainPairView
 from staff.views import StaffViewSet, SubjectViewSet, DepartmentViewSet
 from announcements.views import AnnouncementViewSet
-from analytics.views import dashboard
+from analytics.views import DashboardView, AnalyticsSummaryView
+from marks.views import TermListView
 from timetable.views import TimetableSlotViewSet, PeriodViewSet
 from schemes.views import SchemeOfWorkViewSet, LessonPlanViewSet, SubmissionsViewSet
 
@@ -27,7 +28,9 @@ urlpatterns = [
     path('api/auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
-    path('api/dashboard/', dashboard, name='dashboard'),
+    path('api/dashboard/', DashboardView.as_view(), name='dashboard'),
+    path('api/analytics/summary/', AnalyticsSummaryView.as_view(), name='analytics-summary'),
     path('api/', include('students.urls')),
     path('api/', include('marks.urls')),
+    path('api/terms/', TermListView.as_view(), name='terms'),
 ]
