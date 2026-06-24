@@ -13,7 +13,7 @@ env = environ.Env(
     DEBUG=(bool, False),
     CORS_ALLOWED_ORIGINS=(list, []),
 )
-environ.Env.read_env(BASE_DIR / ".env", overwrite=True)
+environ.Env.read_env(BASE_DIR / ".env")
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
@@ -31,9 +31,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'accounts',
+    'marks',
     'students',
     'staff',
-    'marks',
     'fees',
     'timetable',
     'reports',

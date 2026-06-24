@@ -208,3 +208,11 @@ class MarksAPITests(TestCase):
         self.assertEqual(summary.total, Decimal("82.0"))
         self.assertEqual(summary.grade, "A")
         self.assertTrue(summary.is_submitted)
+
+    def test_terms_list_returns_isCurrent_field(self):
+        self.authenticate(self.teacher)
+        response = self.client.get("/api/terms/")
+        self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(response.data, list)
+        # ensure our term appears with isCurrent key
+        self.assertIn("isCurrent", response.data[0])
