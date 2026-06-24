@@ -1,3 +1,5 @@
+from decimal import Decimal, ROUND_HALF_UP
+
 from django.conf import settings
 from django.db import models
 
@@ -145,6 +147,82 @@ class MarksSummary(BaseModel):
         if total >= 50:
             return "D"
         return "F"
+
+    def __str__(self):
+        return f"{self.student} - {self.subject} - {self.term}: {self.total}"
+
+
+class ContinuousAssessment(BaseModel):
+    """CBC-style continuous assessment with two activities and a project."""
+
+    student = models.ForeignKey(
+        "students.Student",
+        on_delete=models.CASCADE,
+        related_name="ca_records",
+    )
+    subject = models.ForeignKey(
+        "staff.Subject",
+        on_delete=models.CASCADE,
+        related_name="ca_records",
+    )
+    term = models.ForeignKey(
+        Term,
+        on_delete=models.CASCADE,
+        related_name="ca_records",
+    )
+    teacher = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="ca_records",
+    )
+    activity1 = models.DecimalField(
+        max_digits=4,
+        decimal_places=1,
+        null=True,
+        blank=True,
+    )
+    activity2 = models.DecimalField(
+        max_digits=4,
+        decimal_places=1,
+        null=True,
+        blank=True,
+    )
+    project = models.DecimalField(
+        max_digits=5,
+        decimal_places=1,
+        null=True,
+        blank=True,
+    )
+    total = models.DecimalField(
+        max_digits=5,
+        decimal_places=1,
+        null=True,
+        blank=True,
+    )
+    grade = models.CharField(max_length=15, blank=True)
+    remarks = models.CharField(max_length=300, blank=True)
+    is_submitted = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ("student", "subject", "term")
+
+    def save(self, *args, **kwargs):
+        if (
+            self.activity1 is not None
+            and self.activity2 is not None
+            and self.project is not None
+        ):
+            activity_average = (self.activity1 + self.activity2) / Decimal("2")
+            total = (activity_average / Decimal("3")) * Decimal("10") + self.project
+            self.total = total.quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)
+            if self.total >= Decimal("16"):
+                self.grade = "Outstanding"
+            elif self.total >= Decimal("12"):
+                self.grade = "Moderate"
+            else:
+                self.grade = "Basic"
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.student} - {self.subject} - {self.term}: {self.total}"
