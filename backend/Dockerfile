@@ -15,8 +15,4 @@ RUN pip install --upgrade pip \
 
 COPY . /app/
 
-# Development
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-
-# Production
-# CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "120", "--env", "DJANGO_SETTINGS_MODULE=core.settings_production"]

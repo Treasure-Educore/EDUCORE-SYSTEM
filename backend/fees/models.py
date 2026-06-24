@@ -57,6 +57,10 @@ class Payment(BaseModel):
 
     class Meta:
         ordering = ["-payment_date", "-created_at"]
+        indexes = [
+            models.Index(fields=["student", "fee_structure"], name="idx_payment_student_fee"),
+            models.Index(fields=["payment_date"], name="idx_payment_date"),
+        ]
 
     def __str__(self):
         return f"{self.student} paid {self.amount}"

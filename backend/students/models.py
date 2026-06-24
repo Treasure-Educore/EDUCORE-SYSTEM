@@ -96,6 +96,12 @@ class Student(BaseModel):
 
     class Meta:
         ordering = ["full_name"]
+        indexes = [
+            models.Index(fields=["student_number"], name="idx_student_number"),
+            models.Index(fields=["stream", "status"], name="idx_student_stream_status"),
+            models.Index(fields=["year_of_entry"], name="idx_student_year"),
+            models.Index(fields=["full_name"], name="idx_student_name"),
+        ]
 
     def save(self, *args, **kwargs):
         if not self.student_number:
