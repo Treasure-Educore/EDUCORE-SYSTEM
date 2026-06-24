@@ -8,14 +8,48 @@ from accounts.permissions import IsTeacher, RolePermission
 from staff.models import Subject
 from students.models import Student
 
-from .models import ASSESSMENT_DEFAULTS, Assessment, Mark, MarksSummary
+from .models import (
+    ASSESSMENT_DEFAULTS,
+    Assessment,
+    ContinuousAssessment,
+    Mark,
+    MarksSummary,
+)
 from .serializers import (
     BulkMarkSubmitSerializer,
+    ContinuousAssessmentSerializer,
     MarkRowSerializer,
     MarksListQuerySerializer,
     MarksStatusQuerySerializer,
     MarksStatusSerializer,
 )
+
+
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from .models import Term
+
+
+class TermListView(generics.ListAPIView):
+    """
+    GET /api/terms/
+    Returns all terms. Frontend uses this to populate the term dropdown in MarksEntry.
+    """
+    queryset = Term.objects.all().order_by("academic_year", "name")
+    permission_classes = [IsAuthenticated]
+
+    def list(self, request):
+        terms = self.get_queryset()
+        return Response([
+            {
+                "id": str(t.id),
+                "name": t.name,
+                "academicYear": t.academic_year,
+                "isCurrent": t.is_current,
+                "displayName": f"{t.name} — {t.academic_year}",
+            }
+            for t in terms
+        ])
 
 
 class CanViewMarks(RolePermission):
@@ -188,3 +222,79 @@ def _rebuild_summary(student, subject, term):
         },
     )
     return summary
+
+
+class ContinuousAssessmentViewSet(viewsets.ModelViewSet):
+    """
+    GET /api/assessments/?streamId=UUID&subjectId=UUID&termId=UUID
+    POST /api/assessments/bulk-submit/
+    """
+
+    serializer_class = ContinuousAssessmentSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        qs = ContinuousAssessment.objects.select_related(
+            "student__stream__class_level",
+            "subject",
+            "term",
+            "teacher",
+        ).all()
+        stream_id = self.request.query_params.get("streamId")
+        subject_id = self.request.query_params.get("subjectId")
+        term_id = self.request.query_params.get("termId")
+        if stream_id:
+            qs = qs.filter(student__stream_id=stream_id)
+        if subject_id:
+            qs = qs.filter(subject_id=subject_id)
+        if term_id:
+            qs = qs.filter(term_id=term_id)
+        if self.request.user.role == "teacher":
+            qs = qs.filter(teacher=self.request.user)
+        return qs.order_by("student__student_number")
+
+    @action(detail=False, methods=["post"], url_path="bulk-submit")
+    def bulk_submit(self, request):
+        stream_id = request.data.get("streamId")
+        subject_id = request.data.get("subjectId")
+        term_id = request.data.get("termId")
+        records = request.data.get("records", [])
+
+        if not stream_id or not subject_id or not term_id:
+            return Response(
+                {"detail": "streamId, subjectId, and termId are required."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if not isinstance(records, list) or not records:
+            return Response(
+                {"detail": "records must be a non-empty list."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        valid_student_ids = set(
+            Student.objects.filter(stream_id=stream_id).values_list("id", flat=True)
+        )
+
+        with transaction.atomic():
+            for record in records:
+                student_id = record.get("studentId")
+                if student_id not in {str(value) for value in valid_student_ids}:
+                    return Response(
+                        {"detail": f"Student {student_id} is not in the selected stream."},
+                        status=status.HTTP_400_BAD_REQUEST,
+                    )
+                ContinuousAssessment.objects.update_or_create(
+                    student_id=student_id,
+                    subject_id=subject_id,
+                    term_id=term_id,
+                    defaults={
+                        "teacher": request.user,
+                        "activity1": record.get("activity1"),
+                        "activity2": record.get("activity2"),
+                        "project": record.get("project"),
+                        "remarks": record.get("remarks", ""),
+                        "is_submitted": True,
+                    },
+                )
+
+        return Response({"detail": f"CA records saved for {len(records)} students."})

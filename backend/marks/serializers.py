@@ -5,7 +5,7 @@ from rest_framework import serializers
 from staff.models import Subject
 from students.models import Stream, Student
 
-from .models import ASSESSMENT_DEFAULTS, Assessment, Term
+from .models import ASSESSMENT_DEFAULTS, Assessment, ContinuousAssessment, Term
 
 
 class TermSerializer(serializers.ModelSerializer):
@@ -192,3 +192,55 @@ class MarksStatusSerializer(serializers.Serializer):
     test1Submitted = serializers.BooleanField()
     test2Submitted = serializers.BooleanField()
     examSubmitted = serializers.BooleanField()
+
+
+class ContinuousAssessmentSerializer(serializers.ModelSerializer):
+    studentId = serializers.PrimaryKeyRelatedField(
+        queryset=Student.objects.select_related("stream").all(),
+        source="student",
+    )
+    studentNumber = serializers.CharField(source="student.student_number", read_only=True)
+    studentName = serializers.CharField(source="student.full_name", read_only=True)
+    subjectId = serializers.PrimaryKeyRelatedField(
+        queryset=Subject.objects.all(),
+        source="subject",
+    )
+    subjectName = serializers.CharField(source="subject.name", read_only=True)
+    termId = serializers.PrimaryKeyRelatedField(queryset=Term.objects.all(), source="term")
+    teacherName = serializers.CharField(source="teacher.name", read_only=True)
+    isSubmitted = serializers.BooleanField(source="is_submitted", required=False)
+
+    class Meta:
+        model = ContinuousAssessment
+        fields = (
+            "id",
+            "studentId",
+            "studentNumber",
+            "studentName",
+            "subjectId",
+            "subjectName",
+            "termId",
+            "teacherName",
+            "activity1",
+            "activity2",
+            "project",
+            "total",
+            "grade",
+            "remarks",
+            "isSubmitted",
+            "created_at",
+            "updated_at",
+        )
+        read_only_fields = ("total", "grade", "teacherName", "created_at", "updated_at")
+
+    def create(self, validated_data):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            validated_data.setdefault("teacher", request.user)
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        request = self.context.get("request")
+        if request and request.user.is_authenticated:
+            validated_data.setdefault("teacher", request.user)
+        return super().update(instance, validated_data)
