@@ -27,6 +27,7 @@ from .serializers import (
 
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
+from core.pagination import NoPagination
 from .models import Term
 
 
@@ -37,6 +38,7 @@ class TermListView(generics.ListAPIView):
     """
     queryset = Term.objects.all().order_by("academic_year", "name")
     permission_classes = [IsAuthenticated]
+    pagination_class = NoPagination
 
     def list(self, request):
         terms = self.get_queryset()
@@ -61,6 +63,8 @@ class CanViewMarksStatus(RolePermission):
 
 
 class MarksViewSet(viewsets.ViewSet):
+    pagination_class = NoPagination
+
     def get_permissions(self):
         if self.action == "submit":
             permission_classes = (IsTeacher,)

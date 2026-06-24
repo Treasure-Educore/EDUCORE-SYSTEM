@@ -24,7 +24,6 @@ class AnnouncementViewSet(viewsets.ModelViewSet):
     filterset_fields = ['audience']
     ordering_fields = ['date']
     ordering = ['-date']
-    pagination_class = None  # Disable pagination for this viewset
 
     def get_permissions(self):
         if self.action in ['create', 'update', 'partial_update', 'destroy']:

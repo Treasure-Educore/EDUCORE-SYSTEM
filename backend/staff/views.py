@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 
 from accounts.permissions import IsAdminOrHeadTeacher
+from core.pagination import NoPagination
 from .models import Department, Subject, StaffProfile
 from .serializers import (
     DepartmentSerializer,
@@ -20,6 +21,7 @@ class SubjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Subject.objects.all()
     serializer_class = SubjectSerializer
     permission_classes = [AllowAny]
+    pagination_class = NoPagination
 
 
 class DepartmentViewSet(viewsets.ReadOnlyModelViewSet):
@@ -27,6 +29,7 @@ class DepartmentViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Department.objects.prefetch_related('subjects').all()
     serializer_class = DepartmentSerializer
     permission_classes = [AllowAny]
+    pagination_class = NoPagination
 
 
 class StaffViewSet(viewsets.ModelViewSet):
@@ -44,7 +47,6 @@ class StaffViewSet(viewsets.ModelViewSet):
     search_fields = ['user__name', 'user__email']
     ordering_fields = ['user__name', 'created_at']
     ordering = ['user__name']
-    pagination_class = None  # Disable pagination for this viewset
 
     def get_serializer_class(self):
         if self.action == 'create':

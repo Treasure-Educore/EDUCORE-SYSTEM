@@ -3,6 +3,7 @@ from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 
 from accounts.permissions import IsAdmin, IsBursar, IsHeadTeacher
+from core.pagination import NoPagination
 from marks.models import Term
 from students.models import Student
 
@@ -115,6 +116,7 @@ class FeeSummaryView(generics.RetrieveAPIView):
 
     serializer_class = FeeSummarySerializer
     permission_classes = [IsBursar | IsAdmin | IsHeadTeacher]
+    pagination_class = NoPagination
 
     def get(self, request):
         current_term = Term.objects.filter(is_current=True).first()

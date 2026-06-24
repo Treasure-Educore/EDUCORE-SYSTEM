@@ -57,9 +57,9 @@ class StaffAPITestCase(APITestCase):
         response = self.client.get('/api/staff/')
         
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
+        self.assertEqual(len(response.data['results']), 1)
         
-        staff_item = response.data[0]
+        staff_item = response.data['results'][0]
         self.assertIn('id', staff_item)
         self.assertIn('fullName', staff_item)
         self.assertIn('email', staff_item)
@@ -167,11 +167,11 @@ class AnnouncementAPITestCase(APITestCase):
         response = self.client.get('/api/announcements/')
         
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 2)
+        self.assertEqual(len(response.data['results']), 2)
         
         # Check ordering (newest first)
-        self.assertEqual(response.data[0]['title'], 'Announcement 2')
-        self.assertEqual(response.data[1]['title'], 'Announcement 1')
+        self.assertEqual(response.data['results'][0]['title'], 'Announcement 2')
+        self.assertEqual(response.data['results'][1]['title'], 'Announcement 1')
 
     def test_post_announcements_by_admin_returns_201(self):
         """Test POST /api/announcements/ by admin returns 201"""
@@ -264,8 +264,8 @@ class DashboardAPITestCase(APITestCase):
         labels = [metric['label'] for metric in response.data['metrics']]
         self.assertIn('Total Collected', labels)
         self.assertIn('Pending Fees', labels)
-        self.assertIn('Monthly Expenses', labels)
         self.assertIn('Active Bursaries', labels)
+        self.assertIn('Fee Collection', labels)
 
     def test_get_dashboard_unauthenticated_returns_401(self):
         """Test GET /api/dashboard/ without authentication returns 401"""

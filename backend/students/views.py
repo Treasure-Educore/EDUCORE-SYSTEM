@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from accounts.permissions import IsAdminOrHeadTeacher
+from core.pagination import NoPagination
 
 from .models import ClassLevel, Club, Dormitory, Stream, Student
 from .serializers import (
@@ -86,20 +87,20 @@ class DormitoryViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Dormitory.objects.all()
     serializer_class = DormitoryOptionSerializer
     permission_classes = (IsAuthenticated,)
-    pagination_class = None
+    pagination_class = NoPagination
 
 
 class ClubViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Club.objects.all()
     serializer_class = ClubOptionSerializer
     permission_classes = (IsAuthenticated,)
-    pagination_class = None
+    pagination_class = NoPagination
 
 
 class StreamViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     serializer_class = StreamOptionSerializer
     permission_classes = (IsAuthenticated,)
-    pagination_class = None
+    pagination_class = NoPagination
 
     def get_queryset(self):
         queryset = Stream.objects.select_related("class_level")
@@ -115,4 +116,4 @@ class ClassLevelViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = ClassLevel.objects.all()
     serializer_class = ClassLevelOptionSerializer
     permission_classes = (IsAuthenticated,)
-    pagination_class = None
+    pagination_class = NoPagination

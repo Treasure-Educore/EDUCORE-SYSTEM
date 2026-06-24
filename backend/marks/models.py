@@ -133,6 +133,11 @@ class MarksSummary(BaseModel):
 
     class Meta:
         unique_together = ("student", "subject", "term")
+        indexes = [
+            models.Index(fields=["student", "term"], name="idx_summary_student_term"),
+            models.Index(fields=["subject", "term"], name="idx_summary_subject_term"),
+            models.Index(fields=["is_submitted"], name="idx_summary_submitted"),
+        ]
 
     @staticmethod
     def compute_grade(total):
