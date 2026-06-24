@@ -24,12 +24,13 @@ class StaffListSerializer(serializers.ModelSerializer):
     fullName = serializers.CharField(source='user.name', read_only=True)
     email = serializers.CharField(source='user.email', read_only=True)
     role = serializers.CharField(source='user.role', read_only=True)
+    staffNumber = serializers.CharField(source='staff_number', read_only=True)
     subjects = serializers.SerializerMethodField()
     classTeacher = serializers.CharField(source='class_teacher_stream', read_only=True)
 
     class Meta:
         model = StaffProfile
-        fields = ['id', 'fullName', 'email', 'role', 'tin', 'subjects', 'classTeacher', 'status']
+        fields = ['id', 'staffNumber', 'fullName', 'email', 'role', 'tin', 'subjects', 'classTeacher', 'status']
 
     def get_subjects(self, obj):
         """Return list of subject names, not objects"""

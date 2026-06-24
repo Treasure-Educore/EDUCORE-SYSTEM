@@ -102,12 +102,40 @@ class Student(BaseModel):
             models.Index(fields=["year_of_entry"], name="idx_student_year"),
             models.Index(fields=["full_name"], name="idx_student_name"),
         ]
+    def _get_class_code(self):
+        """Map stream class level name to O/A level code."""
+        if not self.stream or not self.stream.class_level:
+            return "XX"
+        level_map = {
+            "S.1": "O1",
+            "S.2": "O2",
+            "S.3": "O3",
+            "S.4": "O4",
+            "S.5": "A1",
+            "S.6": "A2",
+        }
+        return level_map.get(self.stream.class_level.name, "XX")
+
+    @property
+    def education_level(self):
+        """Returns 'O-Level' or 'A-Level' based on stream class level."""
+        if not self.stream or not self.stream.class_level:
+            return "Unknown"
+        o_level = ["S.1", "S.2", "S.3", "S.4"]
+        return "O-Level" if self.stream.class_level.name in o_level else "A-Level"
 
     def save(self, *args, **kwargs):
         if not self.student_number:
-            year = self.year_of_entry or str(timezone.now().year)
-            count = Student.objects.filter(year_of_entry=year).count() + 1
-            self.student_number = f"STU/{year}/{count:04d}"
+            # New format: YY/STU/<ClassCode>/<seq>
+            year = str(self.year_of_entry or timezone.now().year)
+            year_short = year[-2:]
+            class_code = self._get_class_code() if hasattr(self, '_get_class_code') else 'XX'
+            # Count is sequential per year + class level
+            count = Student.objects.filter(
+                year_of_entry=year,
+                stream__class_level__name=(self.stream.class_level.name if self.stream and self.stream.class_level else '')
+            ).count() + 1
+            self.student_number = f"{year_short}/STU/{class_code}/{count:03d}"
         super().save(*args, **kwargs)
 
     def __str__(self):

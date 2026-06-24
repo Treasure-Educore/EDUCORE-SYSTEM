@@ -43,6 +43,7 @@ class StudentListSerializer(serializers.ModelSerializer):
     stream = serializers.SerializerMethodField()
     club = serializers.SerializerMethodField()
     dormitory = serializers.SerializerMethodField()
+    educationLevel = serializers.CharField(source='education_level', read_only=True)
 
     class Meta:
         model = Student
@@ -53,6 +54,7 @@ class StudentListSerializer(serializers.ModelSerializer):
             "yearOfEntry",
             "parentDetails",
             "stream",
+            "educationLevel",
             "club",
             "dormitory",
             "status",

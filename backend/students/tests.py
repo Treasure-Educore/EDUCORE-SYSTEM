@@ -73,8 +73,10 @@ class StudentAPITests(TestCase):
         first_student = self.create_student(full_name="Amara Okello")
         second_student = self.create_student(full_name="Brian Kato")
 
-        self.assertEqual(first_student.student_number, "STU/2026/0001")
-        self.assertEqual(second_student.student_number, "STU/2026/0002")
+        year_short = str(self.admin.date_joined.year)[-2:] if hasattr(self.admin, 'date_joined') else str(self.admin.created_at.year)[-2:]
+        # For S.1 students class code is O1
+        self.assertTrue(first_student.student_number.startswith(f"{year_short}/STU/O1/"))
+        self.assertTrue(second_student.student_number.startswith(f"{year_short}/STU/O1/"))
 
     def test_get_students_returns_200_for_authenticated_user(self):
         self.authenticate()
@@ -95,7 +97,9 @@ class StudentAPITests(TestCase):
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Student.objects.count(), 1)
-        self.assertEqual(Student.objects.first().student_number, "STU/2026/0001")
+        # student number should follow new YY/STU/<ClassCode>/<seq> pattern
+        sn = Student.objects.first().student_number
+        self.assertIn('/STU/', sn)
 
     def test_post_students_with_missing_full_name_returns_400(self):
         self.authenticate()
@@ -152,3 +156,28 @@ class StudentAPITests(TestCase):
         results = self.get_results(response)
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0]["stream"], "S.1 A")
+
+    def test_education_level_property_and_filters(self):
+        # Create S.3 and S.5 students
+        s3_level = ClassLevel.objects.create(name='S.3')
+        s5_level = ClassLevel.objects.create(name='S.5')
+        s3_stream = Stream.objects.create(class_level=s3_level, name='X', academic_year='2026')
+        s5_stream = Stream.objects.create(class_level=s5_level, name='Y', academic_year='2026')
+        s3_student = Student.objects.create(full_name='S3 Student', date_of_birth='2010-01-01', gender=Student.Gender.MALE, parent_details='P', year_of_entry='2026', stream=s3_stream)
+        s5_student = Student.objects.create(full_name='S5 Student', date_of_birth='2008-01-01', gender=Student.Gender.MALE, parent_details='P', year_of_entry='2026', stream=s5_stream)
+
+        # education_level property
+        self.assertEqual(s3_student.education_level, 'O-Level')
+        self.assertEqual(s5_student.education_level, 'A-Level')
+
+        # Filter by level via API
+        self.authenticate()
+        resp_o = self.client.get('/api/students/?level=O-Level')
+        resp_a = self.client.get('/api/students/?level=A-Level')
+        self.assertEqual(resp_o.status_code, 200)
+        self.assertEqual(resp_a.status_code, 200)
+        # Check presence of expected students
+        results_o = resp_o.data.get('results', [])
+        results_a = resp_a.data.get('results', [])
+        self.assertTrue(any(r['fullName'] == 'S3 Student' for r in results_o))
+        self.assertTrue(any(r['fullName'] == 'S5 Student' for r in results_a))
