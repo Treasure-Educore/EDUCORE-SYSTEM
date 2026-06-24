@@ -14,7 +14,7 @@ from .serializers import (
 	LessonPlanWriteSerializer,
 	SubmissionSerializer,
 )
-from accounts.permissions import IsDOS, IsHeadTeacher, IsAdmin
+from accounts.permissions import IsDOS, IsHeadTeacher, IsAdmin, IsTeacher
 
 
 class SchemeOfWorkViewSet(viewsets.ModelViewSet):
@@ -35,6 +35,11 @@ class SchemeOfWorkViewSet(viewsets.ModelViewSet):
 		return SchemeOfWorkDetailSerializer
 
 	def perform_create(self, serializer):
+		# Only teachers may create schemes of work
+		if self.request.user.role != "teacher":
+			from rest_framework.exceptions import PermissionDenied
+
+			raise PermissionDenied("Only teachers may create schemes of work.")
 		serializer.save(teacher=self.request.user)
 
 	@action(detail=True, methods=["patch"], url_path="approve", permission_classes=[IsDOS | IsHeadTeacher | IsAdmin])

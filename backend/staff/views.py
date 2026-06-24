@@ -4,7 +4,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 
-from accounts.permissions import IsAdminOrHeadTeacher
+from accounts.permissions import IsAdminOrHeadTeacher, IsAdmin, IsHeadTeacher, IsDOS
 from core.pagination import NoPagination
 from .models import Department, Subject, StaffProfile
 from .serializers import (
@@ -59,6 +59,8 @@ class StaffViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['create', 'update', 'partial_update', 'destroy']:
             permission_classes = [IsAdminOrHeadTeacher]
+        elif self.action in ['list', 'retrieve']:
+            permission_classes = [IsAdmin | IsHeadTeacher | IsDOS]
         else:
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]

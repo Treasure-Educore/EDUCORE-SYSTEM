@@ -15,6 +15,21 @@ env = environ.Env(
 )
 environ.Env.read_env(BASE_DIR / ".env")
 
+# Optional Sentry integration. Initialize only when SENTRY_DSN is provided.
+SENTRY_DSN = env('SENTRY_DSN', default='')
+
+if SENTRY_DSN:
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=0.1,
+        send_default_pii=False,
+        environment=env('DJANGO_ENV', default='development'),
+    )
+
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 
