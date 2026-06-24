@@ -1,0 +1,216 @@
+[
+  {
+    "model": "library.bookcategory",
+    "pk": 1,
+    "fields": {"name": "O-Level Sciences", "education_level": "O-Level", "subject": null, "description": "Sciences for O-Level"}
+  },
+  {
+    "model": "library.bookcategory",
+    "pk": 2,
+    "fields": {"name": "O-Level Humanities", "education_level": "O-Level", "subject": null, "description": "Humanities for O-Level"}
+  },
+  {
+    "model": "library.bookcategory",
+    "pk": 3,
+    "fields": {"name": "O-Level Languages", "education_level": "O-Level", "subject": null, "description": "Languages for O-Level"}
+  },
+  {
+    "model": "library.bookcategory",
+    "pk": 4,
+    "fields": {"name": "A-Level Sciences", "education_level": "A-Level", "subject": null, "description": "Sciences for A-Level"}
+  },
+  {
+    "model": "library.bookcategory",
+    "pk": 5,
+    "fields": {"name": "A-Level Humanities", "education_level": "A-Level", "subject": null, "description": "Humanities for A-Level"}
+  },
+  {
+    "model": "library.bookcategory",
+    "pk": 6,
+    "fields": {"name": "Both", "education_level": "Both", "subject": null, "description": "General/reference books"}
+  },
+
+  /* 20 books: 5 Mathematics, 5 English, 5 Sciences, 5 Reference */
+  {
+    "model": "library.book",
+    "pk": 1,
+    "fields": {"title": "Mathematics for O-Level 1", "author": "Author A", "isbn": "", "category": 1, "education_level": "O-Level", "subject": null, "publisher": "Pub", "year_published": "2018", "total_copies": 3, "available_copies": 3, "location": "Shelf A1", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 2,
+    "fields": {"title": "Advanced Mathematics", "author": "Author B", "isbn": "", "category": 4, "education_level": "A-Level", "subject": null, "publisher": "Pub", "year_published": "2020", "total_copies": 2, "available_copies": 2, "location": "Shelf A2", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 3,
+    "fields": {"title": "Mathematics Workbook", "author": "Author C", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2017", "total_copies": 4, "available_copies": 4, "location": "Shelf A3", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 4,
+    "fields": {"title": "Mathematics Problems", "author": "Author D", "isbn": "", "category": 1, "education_level": "O-Level", "subject": null, "publisher": "Pub", "year_published": "2015", "total_copies": 2, "available_copies": 2, "location": "Shelf A4", "condition": "Fair", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 5,
+    "fields": {"title": "Geometry Basics", "author": "Author E", "isbn": "", "category": 1, "education_level": "O-Level", "subject": null, "publisher": "Pub", "year_published": "2016", "total_copies": 1, "available_copies": 1, "location": "Shelf A5", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+
+  {
+    "model": "library.book",
+    "pk": 6,
+    "fields": {"title": "English Literature", "author": "Author L1", "isbn": "", "category": 2, "education_level": "O-Level", "subject": null, "publisher": "Pub", "year_published": "2014", "total_copies": 3, "available_copies": 3, "location": "Shelf B1", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 7,
+    "fields": {"title": "English Grammar", "author": "Author L2", "isbn": "", "category": 3, "education_level": "O-Level", "subject": null, "publisher": "Pub", "year_published": "2012", "total_copies": 2, "available_copies": 2, "location": "Shelf B2", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 8,
+    "fields": {"title": "English Anthology", "author": "Author L3", "isbn": "", "category": 5, "education_level": "A-Level", "subject": null, "publisher": "Pub", "year_published": "2019", "total_copies": 2, "available_copies": 2, "location": "Shelf B3", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 9,
+    "fields": {"title": "Poetry Collections", "author": "Author L4", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2013", "total_copies": 2, "available_copies": 2, "location": "Shelf B4", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 10,
+    "fields": {"title": "English Studies", "author": "Author L5", "isbn": "", "category": 2, "education_level": "O-Level", "subject": null, "publisher": "Pub", "year_published": "2011", "total_copies": 1, "available_copies": 1, "location": "Shelf B5", "condition": "Fair", "date_acquired": null, "notes": ""}
+  },
+
+  {
+    "model": "library.book",
+    "pk": 11,
+    "fields": {"title": "Physics Principles", "author": "Author S1", "isbn": "", "category": 1, "education_level": "O-Level", "subject": null, "publisher": "Pub", "year_published": "2010", "total_copies": 3, "available_copies": 3, "location": "Shelf C1", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 12,
+    "fields": {"title": "Chemistry Basics", "author": "Author S2", "isbn": "", "category": 4, "education_level": "A-Level", "subject": null, "publisher": "Pub", "year_published": "2018", "total_copies": 2, "available_copies": 2, "location": "Shelf C2", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 13,
+    "fields": {"title": "Biology for Schools", "author": "Author S3", "isbn": "", "category": 1, "education_level": "O-Level", "subject": null, "publisher": "Pub", "year_published": "2016", "total_copies": 3, "available_copies": 3, "location": "Shelf C3", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 14,
+    "fields": {"title": "Integrated Sciences", "author": "Author S4", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2014", "total_copies": 2, "available_copies": 2, "location": "Shelf C4", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+
+  {
+    "model": "library.book",
+    "pk": 15,
+    "fields": {"title": "Reference Encyclopedia", "author": "Author R1", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2008", "total_copies": 5, "available_copies": 5, "location": "Shelf D1", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 16,
+    "fields": {"title": "World Atlas", "author": "Author R2", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2012", "total_copies": 2, "available_copies": 2, "location": "Shelf D2", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 17,
+    "fields": {"title": "Dictionary", "author": "Author R3", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2005", "total_copies": 3, "available_copies": 3, "location": "Shelf D3", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 18,
+    "fields": {"title": "General Knowledge", "author": "Author R4", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2011", "total_copies": 2, "available_copies": 2, "location": "Shelf D4", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 19,
+    "fields": {"title": "Study Skills", "author": "Author R5", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2019", "total_copies": 2, "available_copies": 2, "location": "Shelf D5", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+  {
+    "model": "library.book",
+    "pk": 20,
+    "fields": {"title": "Computing Basics", "author": "Author C1", "isbn": "", "category": 6, "education_level": "Both", "subject": null, "publisher": "Pub", "year_published": "2021", "total_copies": 1, "available_copies": 1, "location": "Shelf D6", "condition": "Good", "date_acquired": null, "notes": ""}
+  },
+
+  /* 10 LibraryCards - sample student UUIDs (replace after load if necessary) */
+  {
+    "model": "library.librarycard",
+    "pk": 1,
+    "fields": {"student": "00000000-0000-0000-0000-000000000001", "card_number": "LIB/26/STU/O1/001", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 2,
+    "fields": {"student": "00000000-0000-0000-0000-000000000002", "card_number": "LIB/26/STU/O1/002", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 3,
+    "fields": {"student": "00000000-0000-0000-0000-000000000003", "card_number": "LIB/26/STU/O1/003", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 4,
+    "fields": {"student": "00000000-0000-0000-0000-000000000004", "card_number": "LIB/26/STU/O1/004", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 5,
+    "fields": {"student": "00000000-0000-0000-0000-000000000005", "card_number": "LIB/26/STU/O1/005", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 6,
+    "fields": {"student": "00000000-0000-0000-0000-000000000006", "card_number": "LIB/26/STU/O1/006", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 7,
+    "fields": {"student": "00000000-0000-0000-0000-000000000007", "card_number": "LIB/26/STU/O1/007", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 8,
+    "fields": {"student": "00000000-0000-0000-0000-000000000008", "card_number": "LIB/26/STU/O1/008", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 9,
+    "fields": {"student": "00000000-0000-0000-0000-000000000009", "card_number": "LIB/26/STU/O1/009", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+  {
+    "model": "library.librarycard",
+    "pk": 10,
+    "fields": {"student": "00000000-0000-0000-0000-00000000000a", "card_number": "LIB/26/STU/O1/010", "issued_date": null, "expiry_date": null, "is_active": true, "issued_by": null}
+  },
+
+  /* 5 BookIssue records (3 issued, 1 returned, 1 overdue) */
+  {
+    "model": "library.bookissue",
+    "pk": 1,
+    "fields": {"book": 1, "library_card": 1, "issue_date": null, "due_date": null, "return_date": null, "status": "issued", "issued_by": null, "fine_amount": "0.00", "notes": ""}
+  },
+  {
+    "model": "library.bookissue",
+    "pk": 2,
+    "fields": {"book": 2, "library_card": 2, "issue_date": null, "due_date": null, "return_date": null, "status": "issued", "issued_by": null, "fine_amount": "0.00", "notes": ""}
+  },
+  {
+    "model": "library.bookissue",
+    "pk": 3,
+    "fields": {"book": 3, "library_card": 3, "issue_date": null, "due_date": null, "return_date": null, "status": "issued", "issued_by": null, "fine_amount": "0.00", "notes": ""}
+  },
+  {
+    "model": "library.bookissue",
+    "pk": 4,
+    "fields": {"book": 4, "library_card": 4, "issue_date": null, "due_date": null, "return_date": "2026-01-01", "status": "returned", "issued_by": null, "fine_amount": "0.00", "notes": ""}
+  },
+  {
+    "model": "library.bookissue",
+    "pk": 5,
+    "fields": {"book": 5, "library_card": 5, "issue_date": null, "due_date": "2020-01-01", "return_date": null, "status": "overdue", "issued_by": null, "fine_amount": "0.00", "notes": ""}
+  }
+]

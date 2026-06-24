@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from core.base_model import BaseModel
 
 
@@ -51,6 +52,7 @@ class StaffProfile(BaseModel):
         related_name='staff_members'
     )
     subjects = models.ManyToManyField(Subject, blank=True, related_name='teachers')
+    staff_number = models.CharField(max_length=20, unique=True, blank=True, editable=False)
     status = models.CharField(
         max_length=20,
         choices=[('Active', 'Active'), ('On Leave', 'On Leave'), ('Inactive', 'Inactive')],
@@ -64,3 +66,12 @@ class StaffProfile(BaseModel):
 
     def __str__(self):
         return f"{self.user.name} ({self.user.role})"
+
+    def save(self, *args, **kwargs):
+        if not self.staff_number:
+            year_short = str(timezone.now().year)[-2:]
+            count = StaffProfile.objects.filter(
+                created_at__year=timezone.now().year
+            ).count() + 1
+            self.staff_number = f"{year_short}/STA/{count:03d}"
+        super().save(*args, **kwargs)

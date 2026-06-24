@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'marks',
     'students',
     'staff',
+    'sickbay',
+    'library',
     'fees',
     'timetable',
     'reports',

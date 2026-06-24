@@ -45,5 +45,7 @@ urlpatterns = [
     path('reports/student/<uuid:pk>/pdf/', ReportCardPDFView.as_view(), name='student-report-card-pdf'),
     path('', include('students.urls')),
     path('', include('marks.urls')),
+    path('sickbay/', include('sickbay.urls')),
+    path('library/', include('library.urls')),
     path('terms/', TermListView.as_view(), name='terms'),
 ]

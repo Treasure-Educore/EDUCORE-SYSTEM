@@ -1,4 +1,22 @@
 from django.test import TestCase
+from django.contrib.auth import get_user_model
+from django.utils import timezone
+
+from .models import StaffProfile
+
+
+class StaffNumberTests(TestCase):
+    def setUp(self):
+        User = get_user_model()
+        self.user = User.objects.create_user(email='staff1@example.com', password='pass1234', name='Staff One', role=User.Role.TEACHER)
+
+    def test_staff_number_auto_generated(self):
+        sp = StaffProfile.objects.create(user=self.user)
+        year_short = str(timezone.now().year)[-2:]
+        self.assertTrue(sp.staff_number.startswith(f"{year_short}/STA/"))
+        # check sequential 001
+        self.assertTrue(sp.staff_number.endswith('001'))
+from django.test import TestCase
 from rest_framework.test import APIClient, APITestCase
 from rest_framework import status
 from accounts.models import User

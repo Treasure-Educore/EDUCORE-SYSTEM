@@ -55,6 +55,13 @@ class StudentViewSet(viewsets.ModelViewSet):
                 )
             ).filter(stream_display_name=stream)
 
+        # Filter by education level (O-Level / A-Level)
+        level = self.request.query_params.get("level")
+        if level == 'O-Level':
+            queryset = queryset.filter(stream__class_level__name__in=['S.1','S.2','S.3','S.4'])
+        elif level == 'A-Level':
+            queryset = queryset.filter(stream__class_level__name__in=['S.5','S.6'])
+
         return queryset
 
     def get_serializer_class(self):
