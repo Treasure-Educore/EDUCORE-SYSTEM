@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'announcements',
     'analytics',
     'attendance',
+    'portfolios',
 ]
 
 MIDDLEWARE = [
