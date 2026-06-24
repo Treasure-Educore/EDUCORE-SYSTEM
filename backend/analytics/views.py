@@ -3,6 +3,7 @@ from django.utils import timezone
 from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
+from accounts.permissions import IsDOS, IsAdmin, IsHeadTeacher
 from rest_framework.response import Response
 
 from announcements.models import Announcement
@@ -262,7 +263,7 @@ class AnalyticsSummaryView(generics.RetrieveAPIView):
     Returns high-level aggregates used for analytics dashboards.
     """
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsDOS | IsAdmin | IsHeadTeacher]
     pagination_class = NoPagination
 
     def get(self, request):

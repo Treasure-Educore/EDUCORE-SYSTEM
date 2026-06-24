@@ -4,7 +4,7 @@ from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from accounts.permissions import IsTeacher, RolePermission
+from accounts.permissions import IsTeacher, RolePermission, IsAdmin, IsHeadTeacher, IsDOS
 from staff.models import Subject
 from students.models import Student
 
