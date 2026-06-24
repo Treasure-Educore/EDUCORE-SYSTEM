@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+from accounts.permissions import IsTeacher
 
 from .models import PortfolioItem
 from .serializers import PortfolioItemSerializer
@@ -20,4 +21,8 @@ class PortfolioItemViewSet(viewsets.ModelViewSet):
         return qs.order_by("-date")
 
     def perform_create(self, serializer):
+        if self.request.user.role != "teacher":
+            from rest_framework.exceptions import PermissionDenied
+
+            raise PermissionDenied("Only teachers may create portfolio items.")
         serializer.save(uploaded_by=self.request.user)

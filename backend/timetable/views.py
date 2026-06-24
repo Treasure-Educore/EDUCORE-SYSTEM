@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+from accounts.permissions import IsAdmin, IsHeadTeacher, IsDOS
 from rest_framework.response import Response
 
 from core.pagination import NoPagination
@@ -33,6 +34,14 @@ class TimetableSlotViewSet(viewsets.ModelViewSet):
 		if self.action in ("create", "update", "partial_update"):
 			return TimetableSlotWriteSerializer
 		return TimetableSlotReadSerializer
+
+	def get_permissions(self):
+		# write operations restricted to admin/head_teacher/dos
+		if self.action in ("create", "update", "partial_update", "destroy"):
+			permission_classes = (IsAdmin | IsHeadTeacher | IsDOS,)
+		else:
+			permission_classes = (IsAuthenticated,)
+		return [permission() for permission in permission_classes]
 
 	def perform_create(self, serializer):
 		serializer.save()
