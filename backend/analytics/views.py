@@ -120,12 +120,49 @@ class DashboardView(generics.RetrieveAPIView):
             if Student
             else 0
         )
-        return [
+
+        # Base admin metrics
+        metrics = [
             {"label": "Total Students", "value": total_students, "trend": f"+{new_students} this year"},
             {"label": "Total Staff", "value": total_staff, "trend": f"{on_leave} on leave"},
             {"label": "Active Classes", "value": active_streams, "trend": "All active"},
             {"label": "Fee Collection", "value": f"{fee_pct}%", "trend": "+5% vs last term"},
         ]
+
+        # Library and Sickbay metrics (added as extra cards)
+        try:
+            from library.models import Book, BookIssue, LibraryCard
+        except Exception:
+            Book = BookIssue = LibraryCard = None
+
+        try:
+            from sickbay.models import SickbayVisit
+        except Exception:
+            SickbayVisit = None
+
+        from datetime import date
+
+        if Book:
+            total_books = Book.objects.aggregate(t=models.Sum('total_copies'))['t'] or 0
+            available_books = Book.objects.aggregate(t=models.Sum('available_copies'))['t'] or 0
+            issued_books = total_books - available_books
+        else:
+            total_books = available_books = issued_books = 0
+
+        if SickbayVisit:
+            visits_today = SickbayVisit.objects.filter(date=date.today()).count()
+            admitted_now = SickbayVisit.objects.filter(
+                visit_type='admitted', time_out__isnull=True, date=date.today()
+            ).count()
+        else:
+            visits_today = admitted_now = 0
+
+        metrics.extend([
+            {'label': 'Library Books', 'value': total_books, 'trend': f'{available_books} available'},
+            {'label': 'Sickbay Today', 'value': visits_today, 'trend': f'{admitted_now} currently admitted'},
+        ])
+
+        return metrics
 
     def _dos_metrics(self, Student, Stream, Subject, MarksSummary, current_term):
         classes_managed = Stream.objects.count() if Stream else 0
@@ -293,6 +330,56 @@ class AnalyticsSummaryView(generics.RetrieveAPIView):
                 or 0
             )
 
+        # Support ?level= filter to limit analytics to O-Level or A-Level if provided
+        level = request.query_params.get('level')
+        o_level_ids = a_level_ids = None
+        try:
+            from students.models import Student as StudentModel
+        except Exception:
+            StudentModel = None
+
+        if level and StudentModel:
+            if level.lower() in ('o', 'o-level', 'o_level', 'o level', 'o-levels'):
+                o_level_ids = StudentModel.objects.filter(
+                    stream__class_level__name__in=['S.1','S.2','S.3','S.4']
+                ).values_list('id', flat=True)
+            if level.lower() in ('a', 'a-level', 'a_level', 'a level', 'a-levels'):
+                a_level_ids = StudentModel.objects.filter(
+                    stream__class_level__name__in=['S.5','S.6']
+                ).values_list('id', flat=True)
+
+        # Compute O/A level averages and counts (unfiltered if level param not provided)
+        try:
+            from students.models import Student as StudentForLevels
+        except Exception:
+            StudentForLevels = None
+
+        try:
+            if MarksSummary and current_term and StudentForLevels:
+                o_level_student_ids = StudentForLevels.objects.filter(
+                    stream__class_level__name__in=['S.1','S.2','S.3','S.4']
+                ).values_list('id', flat=True)
+
+                a_level_student_ids = StudentForLevels.objects.filter(
+                    stream__class_level__name__in=['S.5','S.6']
+                ).values_list('id', flat=True)
+
+                o_avg = MarksSummary.objects.filter(
+                    student_id__in=o_level_student_ids,
+                    term=current_term,
+                ).aggregate(a=models.Avg('total'))['a'] or 0
+
+                a_avg = MarksSummary.objects.filter(
+                    student_id__in=a_level_student_ids,
+                    term=current_term,
+                ).aggregate(a=models.Avg('total'))['a'] or 0
+            else:
+                o_avg = a_avg = 0
+                o_level_student_ids = a_level_student_ids = []
+        except Exception:
+            o_avg = a_avg = 0
+            o_level_student_ids = a_level_student_ids = []
+
         fee_pct = None
         try:
             from fees.models import FeeStructure, Payment
@@ -321,5 +408,9 @@ class AnalyticsSummaryView(generics.RetrieveAPIView):
                 "totalStreams": total_streams,
                 "averageMark": float(avg_mark) if avg_mark is not None else None,
                 "feeCollectionPercent": fee_pct,
+                "oLevelAverage": round(float(o_avg), 1),
+                "aLevelAverage": round(float(a_avg), 1),
+                "oLevelStudents": len(list(o_level_student_ids)) if o_level_student_ids is not None else 0,
+                "aLevelStudents": len(list(a_level_student_ids)) if a_level_student_ids is not None else 0,
             }
         )
