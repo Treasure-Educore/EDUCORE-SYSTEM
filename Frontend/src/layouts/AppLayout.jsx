@@ -10,7 +10,8 @@ const pageTitleMap = Object.fromEntries(navigationItems.map((item) => [item.path
 export default function AppLayout() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
+  const { user, logout, isAuthenticated } = useAuth();
+  const allowDevelopmentBypass = import.meta.env.DEV;
   const [collapsed, setCollapsed] = useState(() => {
     try {
       return localStorage.getItem("educore.sidebar") === "collapsed";
@@ -32,6 +33,10 @@ export default function AppLayout() {
   useEffect(() => {
     setSidebarOpen(false);
   }, [location.pathname]);
+
+  if (!isAuthenticated && !allowDevelopmentBypass) {
+    return null;
+  }
 
   const currentTitle = useMemo(() => {
     if (location.pathname === "/") return "Dashboard";

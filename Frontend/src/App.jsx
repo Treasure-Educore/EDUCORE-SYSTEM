@@ -9,6 +9,12 @@ import Attendance from "./pages/Attendance";
 import Exams from "./pages/Exams";
 import Library from "./pages/Library";
 import Reports from "./pages/Reports";
+import Fees from "./pages/Fees";
+import Analytics from "./pages/Analytics";
+import Portfolios from "./pages/Portfolios";
+import ContinuousAssessment from "./pages/ContinuousAssessment";
+import Timetable from "./pages/Timetable";
+import SchemesOfWork from "./pages/SchemesOfWork";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
@@ -61,6 +67,12 @@ export default function App() {
           <Route path="exams" element={<Exams />} />
           <Route path="library" element={<Library />} />
           <Route path="reports" element={<Reports />} />
+          <Route path="fees" element={<Fees />} />
+          <Route path="analytics" element={<Analytics />} />
+          <Route path="portfolios" element={<Portfolios />} />
+          <Route path="continuous-assessment" element={<ContinuousAssessment />} />
+          <Route path="timetable" element={<Timetable />} />
+          <Route path="schemes" element={<SchemesOfWork />} />
           <Route path="settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Route>

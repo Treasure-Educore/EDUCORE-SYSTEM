@@ -6,14 +6,15 @@ export default function RequireAuth() {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const allowDevelopmentBypass = import.meta.env.DEV && location.pathname !== "/login";
 
   useEffect(() => {
-    if (!isAuthenticated && location.pathname !== "/") {
+    if (!isAuthenticated && !allowDevelopmentBypass && location.pathname !== "/") {
       navigate("/", { replace: true, state: { from: location.pathname } });
     }
-  }, [isAuthenticated, location.pathname, navigate]);
+  }, [isAuthenticated, allowDevelopmentBypass, location.pathname, navigate]);
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && !allowDevelopmentBypass) {
     return null;
   }
 

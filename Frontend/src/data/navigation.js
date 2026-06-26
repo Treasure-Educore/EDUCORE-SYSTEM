@@ -7,5 +7,11 @@ export const navigationItems = [
   { label: "Exams", path: "/exams", icon: "exams" },
   { label: "Library", path: "/library", icon: "library" },
   { label: "Reports", path: "/reports", icon: "reports" },
+  { label: "Fees", path: "/fees", icon: "fees" },
+  { label: "Analytics", path: "/analytics", icon: "analytics" },
+  { label: "Portfolios", path: "/portfolios", icon: "portfolios" },
+  { label: "Assessment", path: "/continuous-assessment", icon: "assessment" },
+  { label: "Timetable", path: "/timetable", icon: "timetable" },
+  { label: "Schemes", path: "/schemes", icon: "schemes" },
   { label: "Settings", path: "/settings", icon: "settings" },
 ];
